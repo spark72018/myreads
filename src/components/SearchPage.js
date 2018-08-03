@@ -8,7 +8,6 @@ export default function SearchPage({
   inputValue,
   searchResults
 }) {
-  console.log('inputValue is', inputValue);
   let display;
   if (!inputValue) {
     display = null;

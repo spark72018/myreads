@@ -25,10 +25,10 @@ class BooksApp extends Component {
 
   async componentDidMount() {
     const currentBooks = await getAll();
-    console.log('currentBooks', currentBooks);
+
     try {
       const bookObjects = currentBooks.map(this.makeBookObject);
-      console.log('bookObjects', bookObjects);
+      
       return this.setState({ bookObjects });
     } catch (e) {
       console.log('COMPONENT_DID_MOUNT ERROR', e);
@@ -51,7 +51,7 @@ class BooksApp extends Component {
   makeBookQuery = queryString => async () => {
     const { bookObjects } = this.state;
     const results = await search(queryString);
-    console.log('results are', results);
+    
     if (!results || results.error === 'empty query') {
       return this.setState({
         searchResults: new Error('No Results')
@@ -68,9 +68,6 @@ class BooksApp extends Component {
 
       return acc;
     }, []);
-
-    console.log('results are', results);
-    console.log('searchResults are', searchResults);
 
     return this.setState({ searchResults });
   };
@@ -100,10 +97,10 @@ class BooksApp extends Component {
 
     try {
       const bookObjects = updatedBooks.map(this.makeBookObject);
-      console.log('bookObjects', bookObjects);
+  
       return this.setState({ bookObjects });
     } catch (e) {
-      console.log('COMPONENT_DID_MOUNT ERROR', e);
+      console.log('handleBookOptionsClick error!', e);
     }
   };
 
