@@ -30,7 +30,9 @@ export default function Book({
           </div>
         </div>
         <div className="book-title">{title}</div>
-        <div className="book-authors">{authors.join(', ')}</div>
+        <div className="book-authors">
+          {authors ? authors.join(', ') : 'Unknown'}
+        </div>
       </div>
     </li>
   );

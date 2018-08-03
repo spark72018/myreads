@@ -4,7 +4,7 @@ export default function BookOptions({ id, shelf, handleBookOptionsClick }) {
   return (
     <select
       onChange={handleBookOptionsClick}
-      defaultValue={shelf}
+      defaultValue={shelf || 'none'}
       data-bookid={id}
     >
       <option value="move" disabled>
