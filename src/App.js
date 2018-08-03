@@ -92,10 +92,10 @@ class BooksApp extends Component {
 
     const id = e.target.dataset.bookid;
 
-    await update({ id }, chosenShelf);
-    const updatedBooks = await getAll();
-
     try {
+      await update({ id }, chosenShelf);
+      
+      const updatedBooks = await getAll();
       const bookObjects = updatedBooks.map(this.makeBookObject);
   
       return this.setState({ bookObjects });
