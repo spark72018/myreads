@@ -9,18 +9,17 @@ export default function Book({
   authors,
   handleBookOptionsClick
 }) {
+  const style = {
+    width: 128,
+    height: 193,
+    backgroundImage: `url(${imageUrl})`
+  };
+
   return (
     <li>
       <div className="book">
         <div className="book-top">
-          <div
-            className="book-cover"
-            style={{
-              width: 128,
-              height: 193,
-              backgroundImage: `url(${imageUrl})`
-            }}
-          />
+          <div className="book-cover" style={style} />
           <div className="book-shelf-changer">
             <BookOptions
               handleBookOptionsClick={handleBookOptionsClick}
