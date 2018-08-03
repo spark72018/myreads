@@ -35,10 +35,23 @@ class BooksApp extends Component {
     });
   };
 
-  handleBookOptionsClick = e => {
-    console.log('e.target.value is', e.target.value);
-    console.log(e.target.dataset.bookid);
-    const bookId = e.target.dataset.bookid;
+  handleBookOptionsClick = async e => {
+    const chosenShelf = e.target.value;
+
+    if (chosenShelf === 'none') return;
+
+    const id = e.target.dataset.bookid;
+
+    await update({ id }, chosenShelf);
+    const updatedBooks = await getAll();
+
+    try {
+      const bookObjects = updatedBooks.map(this.makeBookObject);
+      console.log('bookObjects', bookObjects);
+      return this.setState({ bookObjects });
+    } catch (e) {
+      console.log('COMPONENT_DID_MOUNT ERROR', e);
+    }
   };
 
   render() {
