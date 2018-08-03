@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Book from './Book';
 import Shelf from './Shelf';
 
-export default function MyReads({ bookObjects }) {
+export default function MyReads(props) {
   return (
     <div className="app">
       {
@@ -16,17 +16,17 @@ export default function MyReads({ bookObjects }) {
               <Shelf
                 shelfTitle={'Currently Reading'}
                 shelfFilterString="currentlyReading"
-                bookObjects={bookObjects}
+                {...props}
               />
               <Shelf
                 shelfTitle={'Want To Read'}
                 shelfFilterString="wantToRead"
-                bookObjects={bookObjects}
+                {...props}
               />
               <Shelf
                 shelfTitle={'Read'}
                 shelfFilterString="read"
-                bookObjects={bookObjects}
+                {...props}
               />
             </div>
           </div>

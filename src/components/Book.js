@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BookOptions from './BookOptions';
 
-export default function Book({ id, imageUrl, shelf, title, authors }) {
+export default function Book({
+  id,
+  imageUrl,
+  shelf,
+  title,
+  authors,
+  handleBookOptionsClick
+}) {
   return (
     <li>
       <div className="book">
@@ -15,7 +22,11 @@ export default function Book({ id, imageUrl, shelf, title, authors }) {
             }}
           />
           <div className="book-shelf-changer">
-            <BookOptions id={id} shelf={shelf} />
+            <BookOptions
+              handleBookOptionsClick={handleBookOptionsClick}
+              id={id}
+              shelf={shelf}
+            />
           </div>
         </div>
         <div className="book-title">{title}</div>

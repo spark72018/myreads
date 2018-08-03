@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
-export default function BookOptions({ id, shelf }) {
+export default function BookOptions({ id, shelf, handleBookOptionsClick }) {
   return (
-    <select defaultValue={shelf} data-bookid={id}>
+    <select
+      onChange={handleBookOptionsClick}
+      defaultValue={shelf}
+      data-bookid={id}
+    >
       <option value="move" disabled>
         Move to...
       </option>
