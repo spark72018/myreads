@@ -24,14 +24,13 @@ class BooksApp extends Component {
   }) => ({ authors, id, imageUrl, title, shelf });
 
   async componentDidMount() {
-    const currentBooks = await getAll();
-
     try {
+      const currentBooks = await getAll();
       const bookObjects = currentBooks.map(this.makeBookObject);
       
       return this.setState({ bookObjects });
     } catch (e) {
-      console.log('COMPONENT_DID_MOUNT ERROR', e);
+      console.log('COMPONENT DID MOUNT ERROR', e);
     }
   }
 
@@ -94,7 +93,7 @@ class BooksApp extends Component {
 
     try {
       await update({ id }, chosenShelf);
-      
+
       const updatedBooks = await getAll();
       const bookObjects = updatedBooks.map(this.makeBookObject);
   
