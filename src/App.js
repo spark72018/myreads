@@ -118,7 +118,7 @@ class BooksApp extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <Route exact path="/" render={() => <MyReads {...myReadsProps} />} />
+          <Route path="/" render={() => <MyReads {...myReadsProps} />} />
           <Route
             exact
             path="/search"
