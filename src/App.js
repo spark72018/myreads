@@ -118,7 +118,11 @@ class BooksApp extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <Route exact path="/" render={() => <MyReads {...myReadsProps} />} />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/'}
+            render={() => <MyReads {...myReadsProps} />}
+          />
           <Route
             path="/search"
             render={() => <SearchPage {...searchPageProps} />}
