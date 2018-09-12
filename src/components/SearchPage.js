@@ -19,7 +19,7 @@ export default function SearchPage({
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <Link to={'/'} className="close-search">
+        <Link to={process.env.PUBLIC_URL + '/'} className="close-search">
           Close
         </Link>
         <div className="search-books-input-wrapper">
