@@ -27,7 +27,7 @@ class BooksApp extends Component {
     try {
       const currentBooks = await getAll();
       const bookObjects = currentBooks.map(this.makeBookObject);
-      
+
       return this.setState({ bookObjects });
     } catch (e) {
       console.log('COMPONENT DID MOUNT ERROR', e);
@@ -50,7 +50,7 @@ class BooksApp extends Component {
   makeBookQuery = queryString => async () => {
     const { bookObjects } = this.state;
     const results = await search(queryString);
-    
+
     if (!results || results.error === 'empty query') {
       return this.setState({
         searchResults: new Error('No Results')
@@ -96,7 +96,7 @@ class BooksApp extends Component {
 
       const updatedBooks = await getAll();
       const bookObjects = updatedBooks.map(this.makeBookObject);
-  
+
       return this.setState({ bookObjects });
     } catch (e) {
       console.log('handleBookOptionsClick error!', e);
@@ -118,9 +118,8 @@ class BooksApp extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <Route path="/" render={() => <MyReads {...myReadsProps} />} />
+          <Route exact path="/" render={() => <MyReads {...myReadsProps} />} />
           <Route
-            exact
             path="/search"
             render={() => <SearchPage {...searchPageProps} />}
           />
