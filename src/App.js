@@ -124,7 +124,7 @@ class BooksApp extends Component {
             render={() => <MyReads {...myReadsProps} />}
           />
           <Route
-            path="/search"
+            path={process.env.PUBLIC_URL + '/search'}
             render={() => <SearchPage {...searchPageProps} />}
           />
         </div>
